@@ -80,8 +80,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>A:\UBC\OneDrive - The University Of British Columbia\Projects\OpenGL\OpenGLTest\Libraries\include;$(IncludePath)</IncludePath>
-    <LibraryPath>A:\UBC\OneDrive - The University Of British Columbia\Projects\OpenGL\OpenGLTest\Libraries\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\git\projects\OpenGL\OpenGLTest\Libraries\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\git\projects\OpenGL\OpenGLTest\Libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -150,6 +150,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="shaderClass.cpp" />
     <ClCompile Include="stb.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="VAO.cpp" />
     <ClCompile Include="VBO.cpp" />
   </ItemGroup>
@@ -159,9 +160,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EBO.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="VAO.h" />
     <ClInclude Include="shaderClass.h" />
     <ClInclude Include="VBO.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\opengl-tutorials-main\opengl-tutorials-main\Resources\YoutubeOpenGL 6 - Textures\pop_cat.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
