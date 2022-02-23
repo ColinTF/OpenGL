@@ -1,3 +1,3 @@
 # OpenGL
-Using this to learn opengl an c++
-maybe not the best idea but Im gonna try
+Using this to learn opengl and c++
+Maybe not the best idea but Im gonna try
