@@ -1,13 +1,21 @@
-﻿  EBO.cpp
-C:\git\projects\OpenGL\OpenGLTest\EBO.h(4,9): fatal error C1083: Cannot open include file: 'glad/glad.h': No such file or directory
+﻿  Camera.cpp
   Main.cpp
-C:\git\projects\OpenGL\OpenGLTest\Main.cpp(2,10): fatal error C1083: Cannot open include file: 'glad/glad.h': No such file or directory
-  shaderClass.cpp
-C:\git\projects\OpenGL\OpenGLTest\shaderClass.h(4,9): fatal error C1083: Cannot open include file: 'glad/glad.h': No such file or directory
-  stb.cpp
-C:\git\projects\OpenGL\OpenGLTest\stb.cpp(2,10): fatal error C1083: Cannot open include file: 'stb/stb_image.h': No such file or directory
-  VAO.cpp
-C:\git\projects\OpenGL\OpenGLTest\VAO.h(4,10): fatal error C1083: Cannot open include file: 'glad/glad.h': No such file or directory
-  VBO.cpp
-C:\git\projects\OpenGL\OpenGLTest\VBO.h(4,9): fatal error C1083: Cannot open include file: 'glad/glad.h': No such file or directory
+C:\git\projects\OpenGL\OpenGLTest\Main.cpp(104,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\git\projects\OpenGL\OpenGLTest\Main.cpp(109,18): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   Generating Code...
+glfw3.lib(context.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(context.obj)' or at 'C:\git\projects\OpenGL\OpenGLTest\x64\Debug\glfw3.pdb'; linking object as if no debug info
+glfw3.lib(init.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(init.obj)' or at 'C:\git\projects\OpenGL\OpenGLTest\x64\Debug\glfw3.pdb'; linking object as if no debug info
+glfw3.lib(input.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(input.obj)' or at 'C:\git\projects\OpenGL\OpenGLTest\x64\Debug\glfw3.pdb'; linking object as if no debug info
+glfw3.lib(monitor.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(monitor.obj)' or at 'C:\git\projects\OpenGL\OpenGLTest\x64\Debug\glfw3.pdb'; linking object as if no debug info
+glfw3.lib(vulkan.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(vulkan.obj)' or at 'C:\git\projects\OpenGL\OpenGLTest\x64\Debug\glfw3.pdb'; linking object as if no debug info
+glfw3.lib(window.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(window.obj)' or at 'C:\git\projects\OpenGL\OpenGLTest\x64\Debug\glfw3.pdb'; linking object as if no debug info
+glfw3.lib(win32_init.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(win32_init.obj)' or at 'C:\git\projects\OpenGL\OpenGLTest\x64\Debug\glfw3.pdb'; linking object as if no debug info
+glfw3.lib(win32_joystick.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(win32_joystick.obj)' or at 'C:\git\projects\OpenGL\OpenGLTest\x64\Debug\glfw3.pdb'; linking object as if no debug info
+glfw3.lib(win32_monitor.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(win32_monitor.obj)' or at 'C:\git\projects\OpenGL\OpenGLTest\x64\Debug\glfw3.pdb'; linking object as if no debug info
+glfw3.lib(win32_time.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(win32_time.obj)' or at 'C:\git\projects\OpenGL\OpenGLTest\x64\Debug\glfw3.pdb'; linking object as if no debug info
+glfw3.lib(win32_thread.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(win32_thread.obj)' or at 'C:\git\projects\OpenGL\OpenGLTest\x64\Debug\glfw3.pdb'; linking object as if no debug info
+glfw3.lib(win32_window.obj) : warning LNK4099: PDB '' was not found with 'glfw3.lib(win32_window.obj)' or at ''; linking object as if no debug info
+glfw3.lib(wgl_context.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(wgl_context.obj)' or at 'C:\git\projects\OpenGL\OpenGLTest\x64\Debug\glfw3.pdb'; linking object as if no debug info
+glfw3.lib(egl_context.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(egl_context.obj)' or at 'C:\git\projects\OpenGL\OpenGLTest\x64\Debug\glfw3.pdb'; linking object as if no debug info
+glfw3.lib(osmesa_context.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(osmesa_context.obj)' or at 'C:\git\projects\OpenGL\OpenGLTest\x64\Debug\glfw3.pdb'; linking object as if no debug info
+  OpenGLTest.vcxproj -> C:\git\projects\OpenGL\OpenGLTest\x64\Debug\OpenGLTest.exe

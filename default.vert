@@ -9,11 +9,12 @@ out vec2 texCoord;
 
 uniform float scale;
 
+uniform mat4 camMatrix;
+
 void main() {
 
-	vec3 pos = aPos + aPos*scale;
+	gl_Position = camMatrix * vec4(aPos, 1.0);
 
-	gl_Position = vec4(pos.x, pos.y, pos.z, 1.0);
 	color = aColor;
 	texCoord = aUV;
 }

@@ -1,1 +1,2 @@
 A:\UBC\OneDrive - The University Of British Columbia\Projects\OpenGL\OpenGLTest\x64\Debug\OpenGLTest.exe
+C:\git\projects\OpenGL\OpenGLTest\x64\Debug\OpenGLTest.exe

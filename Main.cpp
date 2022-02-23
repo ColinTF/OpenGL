@@ -2,29 +2,40 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <stb/stb_image.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 #include "shaderClass.h"
 #include "VBO.h"
 #include "VAO.h"
 #include "EBO.h"
+#include "Camera.h"
 
 #include "Texture.h"
 
+const unsigned int width = 800;
+const unsigned int height = 800;
 
 //Our vertices
 GLfloat vertices[] = {
 
-	-0.5f,		-0.5f,		0.0f,			1.0f,	0.0f,	0.0f,			0.0f, 0.0f,
-	-0.5f,		0.5f,		0.0f,			0.0f,	1.0f,	0.0f,			0.0f, 1.0f,
-	0.5f,		0.5f,		0.0f,			0.0f,	0.0f,	1.0f,			1.0f, 1.0f,
-	0.5f,		-0.5f,		0.0f,			1.0f,	2.0f,	1.0f,			1.0f, 0.0f
+	-0.5f,		0.0f,		0.5f,			1.0f,	0.0f,	0.0f,			0.0f, 0.0f,
+	-0.5f,		0.0f,		-0.5f,			0.0f,	1.0f,	0.0f,			5.0f, 0.0f,
+	0.5f,		0.0f,		-0.5f,			0.0f,	0.0f,	1.0f,			0.0f, 0.0f,
+	0.5f,		0.0f,		0.5f,			1.0f,	2.0f,	1.0f,			5.0f, 0.0f,
+	0.0f,		0.8f,		0.0f,			1.0f,	2.0f,	1.0f,			2.5f, 5.0f
 
 };
 
 //Our incidces of which vertex to use when
 GLuint indices[] = {
-	0, 2, 1,
-	0, 3, 2
+	0, 1, 2,
+	0, 2, 3,
+	0, 1, 4,
+	1, 2, 4,
+	2, 3, 4,
+	3, 0, 4
 };
 
 
@@ -41,7 +52,7 @@ int main() {
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	//create a window and check if it went okay
-	GLFWwindow* window = glfwCreateWindow(800, 800, "OPENGL Test", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(width, height, "OPENGL Test", NULL, NULL);
 	if (window == NULL) {
 		std::cout << "Failed to create GLFW Window" << std::endl;
 		glfwTerminate();
@@ -55,7 +66,7 @@ int main() {
 	gladLoadGL();
 
 	// Set viewport of opengl inside the window
-	glViewport(0, 0, 800, 800);
+	glViewport(0, 0, width, height);
 
 
 	Shader shaderProgram("default.vert", "default.frag");
@@ -73,9 +84,7 @@ int main() {
 	VBO1.UnBind();
 	EBO1.UnBind();
 
-	GLuint uniID = glGetUniformLocation(shaderProgram.ID, "scale");
-
-	Texture popcat("pop_cat.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+	Texture popcat("brick.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
 	popcat.texUnit(shaderProgram, "tex0", 0);
 	
 
@@ -88,16 +97,30 @@ int main() {
 	//put the back buffer to the front and the fron to the back
 	glfwSwapBuffers(window);
 
+	glEnable(GL_DEPTH_TEST);
+
+	Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
+
+	float prevTime = glfwGetTime();
+
 	//Our main loop that controls all
 	while (!glfwWindowShouldClose(window)) {
 
+		float crntTime = glfwGetTime();
+		float deltaTime = crntTime - prevTime;
+		prevTime = crntTime;
+
 		//draw to the screen
 		glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		
 		//Tell open gl which shader we want to use
 		shaderProgram.Activate();
-		glUniform1f(uniID, 0.5f);
+
+		camera.Inputs(window, deltaTime);
+		camera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
+
+		
 
 		popcat.Bind();
 
@@ -105,7 +128,7 @@ int main() {
 		VAO1.Bind();
 
 		//Draw Shapes
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_TRIANGLES, sizeof(indices)/sizeof(int), GL_UNSIGNED_INT, 0);
 
 		glfwSwapBuffers(window);
 
